@@ -32,11 +32,10 @@ cp -rf $WorkDir/MCALR/wofi $HomeDir/.config/
 echo "Updating Cursor Themes"
 rm -rf $HomeDir/.local/share/icons/cursors/
 cp -rf $WorkDir/MCALR/cursors $HomeDir/.local/share/icons/
-for theme in "$HomeDir/.local/share/icons/cursors/*; do
+for theme in "$HomeDir/.local/share/icons/cursors"/*; do
   if [ -d "$theme" ]; then
     themename=$(basename "$theme")
     ln -sf "$theme" "$HomeDir/.local/share/icons/$themename"
-    echo "Created symlink: $HomeDir/.local/share/icons/$themename -> $theme"
   fi
 done
 echo "Updating pcmanfm actions"
