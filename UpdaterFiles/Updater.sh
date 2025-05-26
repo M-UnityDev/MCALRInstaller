@@ -29,6 +29,19 @@ cp -rf $WorkDir/MCALR/fish $HomeDir/.config/
 echo "Updating wofi config"
 rm -rf $HomeDir/.config/wofi
 cp -rf $WorkDir/MCALR/wofi $HomeDir/.config/
+echo "Updating Cursor Themes"
+rm -rf $HomeDir/.local/share/icons/cursors/
+cp -rf $WorkDir/MCALR/cursors $HomeDir/.local/share/icons/
+for theme in "$HomeDir/.local/share/icons/cursors/*; do
+  if [ -d "$theme" ]; then
+    themename=$(basename "$theme")
+    ln -sf "$theme" "$HomeDir/.local/share/icons/$themename"
+    echo "Created symlink: $HomeDir/.local/share/icons/$themename -> $theme"
+  fi
+done
+echo "Updating pcmanfm actions"
+rm -rf $HomeDir/.local/share/file-manager
+cp -rf $WorkDir/MCALR/file-manager $HomeDir/.local/share/
 [ -d "$PatchDir" ] && echo "Applying Patches"
 [ -d "$PatchDir/ast" ] && sudo cp -rf $PatchDir/ast /
 [ -d "$PatchDir/fastfetch" ] &&  cp -rf $PatchDir/fastfetch $HomeDir/.config/
