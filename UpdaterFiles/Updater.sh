@@ -41,6 +41,9 @@ done
 echo "Updating pcmanfm actions"
 rm -rf $HomeDir/.local/share/file-manager
 cp -rf $WorkDir/MCALR/file-manager $HomeDir/.local/share/
+echo "Updating themes"
+rm -rf $HomeDir/.themes/*
+cp -rf $WorkDir/MCALR/themes/* $HomeDir/.themes/
 [ -d "$PatchDir" ] && echo "Applying Patches"
 [ -d "$PatchDir/ast" ] && sudo cp -rf $PatchDir/ast /
 [ -d "$PatchDir/fastfetch" ] &&  cp -rf $PatchDir/fastfetch $HomeDir/.config/
