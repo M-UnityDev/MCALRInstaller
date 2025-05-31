@@ -3,11 +3,10 @@ WorkDir=$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")
 echo "Fetching new version of MCALR"
 git clone -q https://github.com/M-UnityDev/MCALR.git $WorkDir/MCALR
 HomeDir=$HOME
-PatchDir=$WorkDir/Patches/
+PatchDir=$WorkDir/Patches
 echo "Updating shared assets folder" 
-sudo rm -rf /ast
-sudo cp -rf $WorkDir/MCALR/ast /
-sudo chmod -R 777 /ast
+rm -rf $XDG_DATA_HOME/MCALR
+cp -rf $WorkDir/MCALR/ast/* $XDG_DATA_HOME/MCALR/
 echo "Updating fastfetch config"
 rm -rf $HomeDir/.config/fastfetch
 cp -rf $WorkDir/MCALR/fastfetch $HomeDir/.config/
@@ -31,21 +30,21 @@ rm -rf $HomeDir/.config/wofi
 cp -rf $WorkDir/MCALR/wofi $HomeDir/.config/
 echo "Updating Cursor Themes"
 rm -rf $HomeDir/.local/share/icons/cursors/
-cp -rf $WorkDir/MCALR/cursors $HomeDir/.local/share/icons/
-for theme in "$HomeDir/.local/share/icons/cursors"/*; do
+cp -rf $WorkDir/MCALR/cursors/ $XDG_DATA_HOME/icons/
+for theme in "$XDG_DATA_HOME/icons/cursors"/*; do
   if [ -d "$theme" ]; then
     themename=$(basename "$theme")
-    ln -sf "$theme" "$HomeDir/.local/share/icons/$themename"
+    ln -sf "$theme" "$XDG_DATA_HOME/icons/$themename"
   fi
 done
 echo "Updating pcmanfm actions"
 rm -rf $HomeDir/.local/share/file-manager
-cp -rf $WorkDir/MCALR/file-manager $HomeDir/.local/share/
+cp -rf $WorkDir/MCALR/file-manager $XDG_DATA_HOME
 echo "Updating themes"
 rm -rf $HomeDir/.themes/*
 cp -rf $WorkDir/MCALR/themes/* $HomeDir/.themes/
 [ -d "$PatchDir" ] && echo "Applying Patches"
-[ -d "$PatchDir/ast" ] && sudo cp -rf $PatchDir/ast /
+[ -d "$PatchDir/ast" ] && cp -rf $PatchDir/ast/* $XDG_DATA_HOME/MCALR/
 [ -d "$PatchDir/fastfetch" ] &&  cp -rf $PatchDir/fastfetch $HomeDir/.config/
 [ -d "$PatchDir/hypr" ] && cp -rf $PatchDir/hypr $HomeDir/.config/
 [ -d "$PatchDir/fastfetch" ] && cp -rf $PatchDir/fastfetch $HomeDir/.config/
