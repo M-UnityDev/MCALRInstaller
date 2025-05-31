@@ -6,6 +6,7 @@ HomeDir=$HOME
 PatchDir=$WorkDir/Patches
 echo "Updating shared assets folder" 
 rm -rf $XDG_DATA_HOME/MCALR
+mkdir $XDG_DATA_HOME/MCALR
 cp -rf $WorkDir/MCALR/ast/* $XDG_DATA_HOME/MCALR/
 echo "Updating fastfetch config"
 rm -rf $HomeDir/.config/fastfetch
