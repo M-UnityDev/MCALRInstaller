@@ -14,9 +14,6 @@ cp -rf $WorkDir/MCALR/fastfetch $HomeDir/.config/
 echo "Updating hyprland configs"
 rm -rf $HomeDir/.config/hypr
 cp -rf $WorkDir/MCALR/hypr $HomeDir/.config/
-echo "Updating wlogout config"
-rm -rf $HomeDir/.config/wlogout
-cp -rf $WorkDir/MCALR/wlogout $HomeDir/.config/
 echo "Updating kitty config"
 rm -rf $HomeDir/.config/kitty
 cp -rf $WorkDir/MCALR/kitty $HomeDir/.config/

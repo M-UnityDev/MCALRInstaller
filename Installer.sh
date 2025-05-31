@@ -8,7 +8,7 @@ if ! command -v yay >/dev/null; then
 	cd $WorkDir
 	rm -rf $WorkDir/yay/
 fi
-yay -S wlogout adwaita-colors-icon-theme
+yay -S adwaita-colors-icon-theme
 [ ! -d "~/MCALRUpdater/" ] && mkdir ~/MCALRUpdater/
 cp -f $WorkDir/UpdaterFiles/* ~/MCALRUpdater/
 /bin/bash ~/MCALRUpdater/Updater.sh
