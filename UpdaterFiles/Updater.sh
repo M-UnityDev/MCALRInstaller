@@ -46,7 +46,6 @@ cp -rf $WorkDir/MCALR/themes/* $HomeDir/.themes/
 [ -d "$PatchDir/ast" ] && cp -rf $PatchDir/ast/* $DataDir/MCALR/
 [ -d "$PatchDir/fastfetch" ] &&  cp -rf $PatchDir/fastfetch $HomeDir/.config/
 [ -d "$PatchDir/hypr" ] && cp -rf $PatchDir/hypr $HomeDir/.config/
-[ -d "$PatchDir/wlogout" ] && cp -rf $PatchDir/wlogout $HomeDir/.config/
 [ -d "$PatchDir/kitty" ] && cp -rf $PatchDir/kitty $HomeDir/.config/
 [ -d "$PatchDir/waybar" ] && cp -rf $PatchDir/waybar $HomeDir/.config/
 [ -d "$PatchDir/fish" ] && cp -rf $PatchDir/fish $HomeDir/.config/
