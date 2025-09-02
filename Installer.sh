@@ -1,6 +1,6 @@
 #!/bin/bash
 WorkDir=$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")
-sudo pacman -S hyprland waybar fastfetch fish wofi uwsm kitty hyprpaper nano hyprlock pcmanfm-gtk3 nwg-look qalculate-gtk gvfs superfile ttf-jetbrains-mono-nerd ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-mono pipewire wireplumber xarchiver wl-clipboard cliphist grim hyprpolkitagent noto-fonts-extra plymouth mako noto-fonts-emoji imagemagick bashtop slurp
+sudo pacman -S hyprland waybar fastfetch fish rofi-wayland gnome-themes-extra uwsm kitty hyprpaper nano hyprlock nemo nwg-look qalculate-gtk gvfs superfile ttf-jetbrains-mono-nerd ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-mono pipewire wireplumber xarchiver wl-clipboard cliphist grim hyprpolkitagent noto-fonts-extra plymouth mako noto-fonts-emoji imagemagick bashtop slurp
 [ ! -d "~/MCALRUpdater/" ] && mkdir ~/MCALRUpdater/
 cp -f $WorkDir/UpdaterFiles/* ~/MCALRUpdater/
 /bin/bash ~/MCALRUpdater/Updater.sh
@@ -11,4 +11,4 @@ if ! command -v yay >/dev/null; then
 	cd $WorkDir
 	rm -rf $WorkDir/yay/
 fi
-yay -S adwaita-colors-icon-theme zen-browser-bin github-desktop-bin
+yay -S zen-browser-bin
