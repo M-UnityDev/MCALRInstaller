@@ -70,8 +70,8 @@ cp -rf $WorkDir/MCALR/themes/* $HomeDir/.themes/
 [ -d "$PatchDir/rofi" ] && cp -rf $PatchDir/rofi $HomeDir/.config/
 [ -d "$PatchDir/mako" ] && cp -rf $PatchDir/mako $HomeDir/.config/
 
+bash ~/.config/hypr/change-theme.sh -c w &> /dev/null
 hyprctl reload > /dev/null
-bash ~/.config/hypr/change-theme.sh -c w
 clear
 echo " "
 echo "────────────────────────────────────────────────────"
