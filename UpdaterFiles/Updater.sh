@@ -60,15 +60,15 @@ echo "Updating themes"
 rm -rf $HomeDir/.themes/*
 cp -rf $WorkDir/MCALR/themes/* $HomeDir/.themes/
 
-[ -d "$PatchDir" ] && echo "Applying Patches"
-[ -d "$PatchDir/ast" ] && cp -rf $PatchDir/ast/* $DataDir/MCALR/
-[ -d "$PatchDir/fastfetch" ] &&  cp -rf $PatchDir/fastfetch $HomeDir/.config/
-[ -d "$PatchDir/hypr" ] && cp -rf $PatchDir/hypr $HomeDir/.config/
-[ -d "$PatchDir/kitty" ] && cp -rf $PatchDir/kitty $HomeDir/.config/
-[ -d "$PatchDir/waybar" ] && cp -rf $PatchDir/waybar $HomeDir/.config/
-[ -d "$PatchDir/fish" ] && cp -rf $PatchDir/fish $HomeDir/.config/
-[ -d "$PatchDir/rofi" ] && cp -rf $PatchDir/rofi $HomeDir/.config/
-[ -d "$PatchDir/mako" ] && cp -rf $PatchDir/mako $HomeDir/.config/
+#[ -d "$PatchDir" ] && echo "Applying Patches"
+#[ -d "$PatchDir/ast" ] && cp -rf $PatchDir/ast/* $DataDir/MCALR/
+#[ -d "$PatchDir/fastfetch" ] &&  cp -rf $PatchDir/fastfetch $HomeDir/.config/
+#[ -d "$PatchDir/hypr" ] && cp -rf $PatchDir/hypr $HomeDir/.config/
+#[ -d "$PatchDir/kitty" ] && cp -rf $PatchDir/kitty $HomeDir/.config/
+#[ -d "$PatchDir/waybar" ] && cp -rf $PatchDir/waybar $HomeDir/.config/
+#[ -d "$PatchDir/fish" ] && cp -rf $PatchDir/fish $HomeDir/.config/
+#[ -d "$PatchDir/rofi" ] && cp -rf $PatchDir/rofi $HomeDir/.config/
+#[ -d "$PatchDir/mako" ] && cp -rf $PatchDir/mako $HomeDir/.config/
 
 hyprctl reload > /dev/null
 bash ~/.config/hypr/change-theme.sh -c w
