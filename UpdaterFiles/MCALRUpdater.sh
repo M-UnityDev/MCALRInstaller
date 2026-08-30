@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 WorkDir=$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")
 HomeDir=$HOME
 DataDir=$XDG_DATA_HOME
@@ -9,7 +9,7 @@ echo "Fetching new version of MCALR"
 echo " "
 git clone --depth 1 -q https://github.com/M-UnityDev/MCALR.git $WorkDir/MCALR
 
-echo "Updating shared assets folder" 
+echo "Updating shared assets folder"
 rm -rf $DataDir/MCALR
 mkdir $DataDir/MCALR
 cp -rf $WorkDir/MCALR/ast/* $DataDir/MCALR/
@@ -43,7 +43,7 @@ rm -rf $HomeDir/.config/rofi
 cp -rf $WorkDir/MCALR/rofi $HomeDir/.config/
 
 echo "Updating mako config"
-rm -rf $HomeDir/.config/mako  
+rm -rf $HomeDir/.config/mako
 cp -rf $WorkDir/MCALR/mako $HomeDir/.config/
 
 echo "Updating cursor themes"
@@ -70,7 +70,7 @@ cp -rf $WorkDir/MCALR/themes/* $HomeDir/.themes/
 [ -d "$PatchDir/rofi" ] && cp -rf $PatchDir/rofi $HomeDir/.config/
 [ -d "$PatchDir/mako" ] && cp -rf $PatchDir/mako $HomeDir/.config/
 
-bash ~/.config/hypr/change-theme.sh -c w &> /dev/null
+/usr/bin/env bash ~/.config/hypr/change-theme.sh -c w &> /dev/null
 hyprctl reload > /dev/null
 clear
 echo " "
