@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
-WorkDir=$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")
-HomeDir=$HOME
+WorkDir=/tmp
 DataDir=$XDG_DATA_HOME
-PatchDir=$WorkDir/Patches
 clear
 echo " "
 echo "Fetching new version of MCALR"
@@ -15,36 +13,36 @@ mkdir $DataDir/MCALR
 cp -rf $WorkDir/MCALR/ast/* $DataDir/MCALR/
 
 echo "Updating fastfetch config"
-rm -rf $HomeDir/.config/fastfetch
-cp -rf $WorkDir/MCALR/fastfetch $HomeDir/.config/
+rm -rf $HOME/.config/fastfetch
+cp -rf $WorkDir/MCALR/fastfetch $HOME/.config/
 
 echo "Updating nano config"
-rm -rf $HomeDir/.config/nano
-cp -rf $WorkDir/MCALR/nano $HomeDir/.config/
+rm -rf $HOME/.config/nano
+cp -rf $WorkDir/MCALR/nano $HOME/.config/
 
 echo "Updating hyprland configs"
-rm -rf $HomeDir/.config/hypr
-cp -rf $WorkDir/MCALR/hypr $HomeDir/.config/
+rm -rf $HOME/.config/hypr
+cp -rf $WorkDir/MCALR/hypr $HOME/.config/
 
 echo "Updating kitty config"
-rm -rf $HomeDir/.config/kitty
-cp -rf $WorkDir/MCALR/kitty $HomeDir/.config/
+rm -rf $HOME/.config/kitty
+cp -rf $WorkDir/MCALR/kitty $HOME/.config/
 
 echo "Updating waybar config"
-rm -rf $HomeDir/.config/waybar
-cp -rf $WorkDir/MCALR/waybar $HomeDir/.config/
+rm -rf $HOME/.config/waybar
+cp -rf $WorkDir/MCALR/waybar $HOME/.config/
 
 echo "Updating fish config"
-rm -rf $HomeDir/.config/fish
-cp -rf $WorkDir/MCALR/fish $HomeDir/.config/
+rm -rf $HOME/.config/fish
+cp -rf $WorkDir/MCALR/fish $HOME/.config/
 
 echo "Updating rofi config"
-rm -rf $HomeDir/.config/rofi
-cp -rf $WorkDir/MCALR/rofi $HomeDir/.config/
+rm -rf $HOME/.config/rofi
+cp -rf $WorkDir/MCALR/rofi $HOME/.config/
 
 echo "Updating mako config"
-rm -rf $HomeDir/.config/mako
-cp -rf $WorkDir/MCALR/mako $HomeDir/.config/
+rm -rf $HOME/.config/mako
+cp -rf $WorkDir/MCALR/mako $HOME/.config/
 
 echo "Updating cursor themes"
 rm -rf $DataDir/icons/cursors/
@@ -57,18 +55,8 @@ for theme in "$DataDir/icons/cursors"/*; do
 done
 
 echo "Updating themes"
-rm -rf $HomeDir/.themes/*
-cp -rf $WorkDir/MCALR/themes/* $HomeDir/.themes/
-
-#[ -d "$PatchDir" ] && echo "Applying Patches"
-#[ -d "$PatchDir/ast" ] && cp -rf $PatchDir/ast/* $DataDir/MCALR/
-#[ -d "$PatchDir/fastfetch" ] &&  cp -rf $PatchDir/fastfetch $HomeDir/.config/
-#[ -d "$PatchDir/hypr" ] && cp -rf $PatchDir/hypr $HomeDir/.config/
-#[ -d "$PatchDir/kitty" ] && cp -rf $PatchDir/kitty $HomeDir/.config/
-#[ -d "$PatchDir/waybar" ] && cp -rf $PatchDir/waybar $HomeDir/.config/
-#[ -d "$PatchDir/fish" ] && cp -rf $PatchDir/fish $HomeDir/.config/
-#[ -d "$PatchDir/rofi" ] && cp -rf $PatchDir/rofi $HomeDir/.config/
-#[ -d "$PatchDir/mako" ] && cp -rf $PatchDir/mako $HomeDir/.config/
+rm -rf $HOME/.themes/*
+cp -rf $WorkDir/MCALR/themes/* $HOME/.themes/
 
 /usr/bin/env bash ~/.config/hypr/change-theme.sh -c w &> /dev/null
 hyprctl reload > /dev/null
